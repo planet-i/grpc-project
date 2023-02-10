@@ -1,12 +1,18 @@
 syntax = "proto3";   // 声明使用 proto3 语法。如果不声明，将默认使用 proto2 语法
 package api; // 指明当前包
 
+import "google/api/annotations.proto";
+
 // 代表生成的go代码存放的目录是api，包名称是api
 option go_package = "./api;api";
 
 // 初始化模块
 service InitService {
-  rpc Init (NoParam) returns (BoolReply) {}// 初始化
+  rpc Init (NoParam) returns (BoolReply) { // 初始化
+    option (google.api.http) = {
+      post: "/api/v1/init"
+    };
+  }
 }
 
 // 不需要参数的调用

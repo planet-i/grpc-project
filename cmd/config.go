@@ -3,10 +3,10 @@ package main
 import (
 	"os"
 
+	"grpc-project/common"
+
 	"github.com/spf13/pflag"
 	"github.com/spf13/viper"
-
-	"github.com/planet-i/grpc-project/common"
 )
 
 func initConfig() error {
@@ -27,7 +27,7 @@ func initConfig() error {
 	}
 
 	// 绑定cmd参数
-	viper.BindPFlags(pflag.CommandLine)
+	_ = viper.BindPFlags(pflag.CommandLine)
 
 	// 将配置信息存储到全局变量中
 	err := viper.Unmarshal(&common.Config)
