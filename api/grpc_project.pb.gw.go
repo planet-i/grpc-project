@@ -63,7 +63,7 @@ func RegisterInitServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/api.InitService/Init", runtime.WithHTTPPathPattern("/api/v1/init"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/proto.InitService/Init", runtime.WithHTTPPathPattern("/api/init"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -127,7 +127,7 @@ func RegisterInitServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/api.InitService/Init", runtime.WithHTTPPathPattern("/api/v1/init"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/proto.InitService/Init", runtime.WithHTTPPathPattern("/api/init"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -147,7 +147,7 @@ func RegisterInitServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux
 }
 
 var (
-	pattern_InitService_Init_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"api", "v1", "init"}, ""))
+	pattern_InitService_Init_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"api", "init"}, ""))
 )
 
 var (
