@@ -1,6 +1,7 @@
 package common
 
 // 此文件中用来获取存配置信息需要用到的变量或常量
+// !不要在其他包中用全局变量接收配置，否则拿到的都是空
 
 // Config 全局配置
 var Config AllConfig

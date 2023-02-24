@@ -10,4 +10,13 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+
+	server, err := initServer()
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	if err = server.Start(); err != nil {
+		log.Fatal(err)
+	}
 }
