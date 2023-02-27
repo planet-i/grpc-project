@@ -1,6 +1,5 @@
 syntax = "proto3";   // 声明使用 proto3 语法。如果不声明，将默认使用 proto2 语法
-package proto; // 指明当前包
-
+// package proto; 不指定当前包,在swagger-ui文件的model中就不会拼接这个前缀
 import "google/api/annotations.proto";
 
 // 代表生成的go代码存放的目录是api，包名称是api

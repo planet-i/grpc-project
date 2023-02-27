@@ -36,7 +36,7 @@ func NewInitServiceClient(cc grpc.ClientConnInterface) InitServiceClient {
 
 func (c *initServiceClient) Init(ctx context.Context, in *NoParam, opts ...grpc.CallOption) (*BoolReply, error) {
 	out := new(BoolReply)
-	err := c.cc.Invoke(ctx, "/proto.InitService/Init", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/InitService/Init", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -82,7 +82,7 @@ func _InitService_Init_Handler(srv interface{}, ctx context.Context, dec func(in
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/proto.InitService/Init",
+		FullMethod: "/InitService/Init",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InitServiceServer).Init(ctx, req.(*NoParam))
@@ -94,7 +94,7 @@ func _InitService_Init_Handler(srv interface{}, ctx context.Context, dec func(in
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var InitService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "proto.InitService",
+	ServiceName: "InitService",
 	HandlerType: (*InitServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

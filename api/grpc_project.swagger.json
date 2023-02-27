@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "指明当前包",
+    "title": "grpc_project.proto",
     "version": "version not set"
   },
   "tags": [
@@ -25,7 +25,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/protoBoolReply"
+              "$ref": "#/definitions/BoolReply"
             }
           },
           "default": {
@@ -42,7 +42,7 @@
     }
   },
   "definitions": {
-    "protoBoolReply": {
+    "BoolReply": {
       "type": "object",
       "properties": {
         "code": {

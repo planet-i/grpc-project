@@ -3,6 +3,7 @@ module grpc-project
 go 1.19
 
 require (
+	github.com/elazarl/go-bindata-assetfs v1.0.1
 	github.com/google/wire v0.5.0
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.15.1
 	github.com/spf13/pflag v1.0.5

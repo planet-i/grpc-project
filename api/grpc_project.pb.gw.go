@@ -63,7 +63,7 @@ func RegisterInitServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/proto.InitService/Init", runtime.WithHTTPPathPattern("/api/init"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/.InitService/Init", runtime.WithHTTPPathPattern("/api/init"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -127,7 +127,7 @@ func RegisterInitServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/proto.InitService/Init", runtime.WithHTTPPathPattern("/api/init"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/.InitService/Init", runtime.WithHTTPPathPattern("/api/init"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
