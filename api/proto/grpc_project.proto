@@ -8,7 +8,9 @@ option go_package = "./;api";
 
 // 初始化模块
 service InitService {
+  // 定义服务方法
   rpc Init (NoParam) returns (BoolReply) { // 初始化
+    // 添加http网关注解
     option (google.api.http) = {
       post: "/api/init"
     }; 

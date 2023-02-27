@@ -18,7 +18,8 @@
   "paths": {
     "/api/init": {
       "post": {
-        "summary": "初始化",
+        "summary": "定义服务方法",
+        "description": "初始化",
         "operationId": "InitService_Init",
         "responses": {
           "200": {

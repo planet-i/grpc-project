@@ -22,6 +22,7 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type InitServiceClient interface {
+	// 定义服务方法
 	Init(ctx context.Context, in *NoParam, opts ...grpc.CallOption) (*BoolReply, error)
 }
 
@@ -46,6 +47,7 @@ func (c *initServiceClient) Init(ctx context.Context, in *NoParam, opts ...grpc.
 // All implementations must embed UnimplementedInitServiceServer
 // for forward compatibility
 type InitServiceServer interface {
+	// 定义服务方法
 	Init(context.Context, *NoParam) (*BoolReply, error)
 	mustEmbedUnimplementedInitServiceServer()
 }
