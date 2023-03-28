@@ -10,7 +10,14 @@ server:
 data:
   database:
     driver: postgres
-    source: host=192.168.51.203 user=datatom dbname=dtaccount-test sslmode=disable password=db_password port=30238 TimeZone=Asia/Shanghai
+    source: host=192.168.51.203 user=datatom dbname=%s sslmode=disable password=db_password port=30238 TimeZone=Asia/Shanghai
+    defaultDbName: dtaccount-test
+    dbName: asset
   redis:
-    host: 192.168.51.203
-    port: 30648
+    addr: 192.168.51.203:30648
+log:
+  file: ./matrix-service.log
+  level: debug
+  maxSize: 100
+  backups: 3
+  maxAge: 30

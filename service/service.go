@@ -1,19 +1,11 @@
 package service
 
 import (
-	"github.com/google/wire"
+	"grpc-project/service/tag"
 
-	"grpc-project/api"
+	"github.com/google/wire"
 )
 
 var ProviderSet = wire.NewSet(
-	NewInitService,
+	tag.ProviderSet,
 )
-
-type InitService struct {
-	api.UnimplementedInitServiceServer
-}
-
-func NewInitService() *InitService {
-	return &InitService{}
-}

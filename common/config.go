@@ -10,6 +10,7 @@ var Config AllConfig
 type AllConfig struct {
 	Server Server
 	Data   Data
+	Log    Log
 }
 
 // Server 服务信息
@@ -34,12 +35,22 @@ type Data struct {
 
 // DataBase 结构化数据库
 type DataBase struct {
-	Driver string
-	Source string
+	Driver        string
+	Source        string
+	DefaultDBName string
+	DBName        string
 }
 
 // Redis redis数据库
 type Redis struct {
-	Host string
-	Port int
+	Addr string
+}
+
+// Log 日志配置
+type Log struct {
+	File    string
+	Level   string
+	MaxSize int
+	Backups int
+	MaxAge  int
 }

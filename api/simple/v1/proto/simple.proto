@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+package v1;
+
+import "google/api/annotations.proto";
+
+// 代表生成的go代码存放的目录是api，包名称是api
+option go_package = "api/simple/v1;v1";
+
+// 不需要参数的调用
+message NoParam { 
+}
+
+message IDReq {
+  uint32 id = 1;
+}
+
+message BoolReply {
+  int32 code = 1;
+  bool result = 2;
+  string message = 3;
+}
+
+// TagService 标签模块服务
+service TagService {
+  rpc CreateTag(NoParam) returns (BoolReply) { // 创建标签
+    option (google.api.http) = {
+      post: "/api/v1/tags"
+      body: "*"
+    };
+  }
+  rpc DeleteTag (NoParam) returns (BoolReply) { // 批量删除标签
+    option (google.api.http) = {
+      patch: "/api/v1/tags"
+      body: "*"
+    };
+  }
+  rpc UpdateTag (IDReq) returns (BoolReply) { // 更新标签
+    option (google.api.http) = {
+      patch: "/api/v1/tags/{id}"
+      body: "*"
+    };
+  }
+  rpc GetTag (IDReq) returns (BoolReply) { // 获取标签详情
+    option (google.api.http) = {
+      get: "/api/v1/tags/{id}"
+    };
+  }
+  rpc ListTag (NoParam) returns (BoolReply) { // 列举标签列表
+    option (google.api.http) = {
+      post: "/api/v1/tags/list"
+      body: "*"
+    };
+  }
+}
