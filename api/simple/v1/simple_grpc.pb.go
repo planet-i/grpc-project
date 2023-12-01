@@ -22,11 +22,11 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type TagServiceClient interface {
-	CreateTag(ctx context.Context, in *NoParam, opts ...grpc.CallOption) (*BoolReply, error)
-	DeleteTag(ctx context.Context, in *NoParam, opts ...grpc.CallOption) (*BoolReply, error)
-	UpdateTag(ctx context.Context, in *IDReq, opts ...grpc.CallOption) (*BoolReply, error)
-	GetTag(ctx context.Context, in *IDReq, opts ...grpc.CallOption) (*BoolReply, error)
-	ListTag(ctx context.Context, in *NoParam, opts ...grpc.CallOption) (*BoolReply, error)
+	CreateTag(ctx context.Context, in *NoParam, opts ...grpc.CallOption) (*BoolRep, error)
+	DeleteTag(ctx context.Context, in *NoParam, opts ...grpc.CallOption) (*BoolRep, error)
+	UpdateTag(ctx context.Context, in *IDReq, opts ...grpc.CallOption) (*BoolRep, error)
+	GetTag(ctx context.Context, in *IDReq, opts ...grpc.CallOption) (*BoolRep, error)
+	ListTag(ctx context.Context, in *NoParam, opts ...grpc.CallOption) (*BoolRep, error)
 }
 
 type tagServiceClient struct {
@@ -37,8 +37,8 @@ func NewTagServiceClient(cc grpc.ClientConnInterface) TagServiceClient {
 	return &tagServiceClient{cc}
 }
 
-func (c *tagServiceClient) CreateTag(ctx context.Context, in *NoParam, opts ...grpc.CallOption) (*BoolReply, error) {
-	out := new(BoolReply)
+func (c *tagServiceClient) CreateTag(ctx context.Context, in *NoParam, opts ...grpc.CallOption) (*BoolRep, error) {
+	out := new(BoolRep)
 	err := c.cc.Invoke(ctx, "/v1.TagService/CreateTag", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -46,8 +46,8 @@ func (c *tagServiceClient) CreateTag(ctx context.Context, in *NoParam, opts ...g
 	return out, nil
 }
 
-func (c *tagServiceClient) DeleteTag(ctx context.Context, in *NoParam, opts ...grpc.CallOption) (*BoolReply, error) {
-	out := new(BoolReply)
+func (c *tagServiceClient) DeleteTag(ctx context.Context, in *NoParam, opts ...grpc.CallOption) (*BoolRep, error) {
+	out := new(BoolRep)
 	err := c.cc.Invoke(ctx, "/v1.TagService/DeleteTag", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -55,8 +55,8 @@ func (c *tagServiceClient) DeleteTag(ctx context.Context, in *NoParam, opts ...g
 	return out, nil
 }
 
-func (c *tagServiceClient) UpdateTag(ctx context.Context, in *IDReq, opts ...grpc.CallOption) (*BoolReply, error) {
-	out := new(BoolReply)
+func (c *tagServiceClient) UpdateTag(ctx context.Context, in *IDReq, opts ...grpc.CallOption) (*BoolRep, error) {
+	out := new(BoolRep)
 	err := c.cc.Invoke(ctx, "/v1.TagService/UpdateTag", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -64,8 +64,8 @@ func (c *tagServiceClient) UpdateTag(ctx context.Context, in *IDReq, opts ...grp
 	return out, nil
 }
 
-func (c *tagServiceClient) GetTag(ctx context.Context, in *IDReq, opts ...grpc.CallOption) (*BoolReply, error) {
-	out := new(BoolReply)
+func (c *tagServiceClient) GetTag(ctx context.Context, in *IDReq, opts ...grpc.CallOption) (*BoolRep, error) {
+	out := new(BoolRep)
 	err := c.cc.Invoke(ctx, "/v1.TagService/GetTag", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -73,8 +73,8 @@ func (c *tagServiceClient) GetTag(ctx context.Context, in *IDReq, opts ...grpc.C
 	return out, nil
 }
 
-func (c *tagServiceClient) ListTag(ctx context.Context, in *NoParam, opts ...grpc.CallOption) (*BoolReply, error) {
-	out := new(BoolReply)
+func (c *tagServiceClient) ListTag(ctx context.Context, in *NoParam, opts ...grpc.CallOption) (*BoolRep, error) {
+	out := new(BoolRep)
 	err := c.cc.Invoke(ctx, "/v1.TagService/ListTag", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -86,11 +86,11 @@ func (c *tagServiceClient) ListTag(ctx context.Context, in *NoParam, opts ...grp
 // All implementations must embed UnimplementedTagServiceServer
 // for forward compatibility
 type TagServiceServer interface {
-	CreateTag(context.Context, *NoParam) (*BoolReply, error)
-	DeleteTag(context.Context, *NoParam) (*BoolReply, error)
-	UpdateTag(context.Context, *IDReq) (*BoolReply, error)
-	GetTag(context.Context, *IDReq) (*BoolReply, error)
-	ListTag(context.Context, *NoParam) (*BoolReply, error)
+	CreateTag(context.Context, *NoParam) (*BoolRep, error)
+	DeleteTag(context.Context, *NoParam) (*BoolRep, error)
+	UpdateTag(context.Context, *IDReq) (*BoolRep, error)
+	GetTag(context.Context, *IDReq) (*BoolRep, error)
+	ListTag(context.Context, *NoParam) (*BoolRep, error)
 	mustEmbedUnimplementedTagServiceServer()
 }
 
@@ -98,19 +98,19 @@ type TagServiceServer interface {
 type UnimplementedTagServiceServer struct {
 }
 
-func (UnimplementedTagServiceServer) CreateTag(context.Context, *NoParam) (*BoolReply, error) {
+func (UnimplementedTagServiceServer) CreateTag(context.Context, *NoParam) (*BoolRep, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateTag not implemented")
 }
-func (UnimplementedTagServiceServer) DeleteTag(context.Context, *NoParam) (*BoolReply, error) {
+func (UnimplementedTagServiceServer) DeleteTag(context.Context, *NoParam) (*BoolRep, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteTag not implemented")
 }
-func (UnimplementedTagServiceServer) UpdateTag(context.Context, *IDReq) (*BoolReply, error) {
+func (UnimplementedTagServiceServer) UpdateTag(context.Context, *IDReq) (*BoolRep, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateTag not implemented")
 }
-func (UnimplementedTagServiceServer) GetTag(context.Context, *IDReq) (*BoolReply, error) {
+func (UnimplementedTagServiceServer) GetTag(context.Context, *IDReq) (*BoolRep, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetTag not implemented")
 }
-func (UnimplementedTagServiceServer) ListTag(context.Context, *NoParam) (*BoolReply, error) {
+func (UnimplementedTagServiceServer) ListTag(context.Context, *NoParam) (*BoolRep, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListTag not implemented")
 }
 func (UnimplementedTagServiceServer) mustEmbedUnimplementedTagServiceServer() {}

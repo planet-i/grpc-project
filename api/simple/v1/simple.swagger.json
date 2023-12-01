@@ -24,7 +24,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/v1BoolReply"
+              "$ref": "#/definitions/v1BoolRep"
             }
           },
           "default": {
@@ -55,7 +55,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/v1BoolReply"
+              "$ref": "#/definitions/v1BoolRep"
             }
           },
           "default": {
@@ -88,7 +88,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/v1BoolReply"
+              "$ref": "#/definitions/v1BoolRep"
             }
           },
           "default": {
@@ -121,7 +121,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/v1BoolReply"
+              "$ref": "#/definitions/v1BoolRep"
             }
           },
           "default": {
@@ -151,7 +151,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/v1BoolReply"
+              "$ref": "#/definitions/v1BoolRep"
             }
           },
           "default": {
@@ -212,7 +212,7 @@
         }
       }
     },
-    "v1BoolReply": {
+    "v1BoolRep": {
       "type": "object",
       "properties": {
         "code": {

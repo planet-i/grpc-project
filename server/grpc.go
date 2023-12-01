@@ -1,6 +1,7 @@
 package server
 
 import (
+	"github.com/go-redis/redis/v8"
 	grpcMiddleware "github.com/grpc-ecosystem/go-grpc-middleware"
 	grpcRecovery "github.com/grpc-ecosystem/go-grpc-middleware/recovery"
 	"google.golang.org/grpc"
@@ -8,9 +9,11 @@ import (
 	"google.golang.org/grpc/status"
 )
 
-func NewGRPC() *grpc.Server {
+func NewGRPC(redisClient *redis.Client) *grpc.Server {
 	server := grpc.NewServer(
 		grpc.UnaryInterceptor(grpcMiddleware.ChainUnaryServer(
+			//grpcAuth.UnaryServerInterceptor(tokenAuth),
+			NewMyInterceptor(redisClient).TokenAuthIntercept,
 			grpcRecovery.UnaryServerInterceptor(RecoveryInterceptor()),
 		)),
 	)

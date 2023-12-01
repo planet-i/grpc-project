@@ -14,7 +14,7 @@ data:
     defaultDbName: dtaccount-test
     dbName: asset
   redis:
-    addr: 192.168.51.203:30648
+    addr: 192.168.51.207:30246
 log:
   file: ./matrix-service.log
   level: debug

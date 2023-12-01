@@ -15,7 +15,7 @@ message IDReq {
   uint32 id = 1;
 }
 
-message BoolReply {
+message BoolRep {
   int32 code = 1;
   bool result = 2;
   string message = 3;
@@ -23,30 +23,30 @@ message BoolReply {
 
 // TagService 标签模块服务
 service TagService {
-  rpc CreateTag(NoParam) returns (BoolReply) { // 创建标签
+  rpc CreateTag(NoParam) returns (BoolRep) { // 创建标签
     option (google.api.http) = {
       post: "/api/v1/tags"
       body: "*"
     };
   }
-  rpc DeleteTag (NoParam) returns (BoolReply) { // 批量删除标签
+  rpc DeleteTag (NoParam) returns (BoolRep) { // 批量删除标签
     option (google.api.http) = {
       patch: "/api/v1/tags"
       body: "*"
     };
   }
-  rpc UpdateTag (IDReq) returns (BoolReply) { // 更新标签
+  rpc UpdateTag (IDReq) returns (BoolRep) { // 更新标签
     option (google.api.http) = {
       patch: "/api/v1/tags/{id}"
       body: "*"
     };
   }
-  rpc GetTag (IDReq) returns (BoolReply) { // 获取标签详情
+  rpc GetTag (IDReq) returns (BoolRep) { // 获取标签详情
     option (google.api.http) = {
       get: "/api/v1/tags/{id}"
     };
   }
-  rpc ListTag (NoParam) returns (BoolReply) { // 列举标签列表
+  rpc ListTag (NoParam) returns (BoolRep) { // 列举标签列表
     option (google.api.http) = {
       post: "/api/v1/tags/list"
       body: "*"

@@ -17,7 +17,11 @@ import (
 // Injectors from wire.go:
 
 func initServer() (*Server, error) {
-	grpcServer := server.NewGRPC()
+	client, err := repo.NewRedis()
+	if err != nil {
+		return nil, err
+	}
+	grpcServer := server.NewGRPC(client)
 	serveMux := server.NewGateway()
 	httpServeMux := server.NewHttp()
 	db, err := repo.NewDB()
